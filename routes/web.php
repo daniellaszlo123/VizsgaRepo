@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SzavakController;
+use App\Http\Controllers\TemaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/api/szavak", [SzavakController::class, "osszSzoTemaNevvel"]);
+Route::get("/api/tema", [TemaController::class, "osszTema"]);
+Route::get("/api/szavak/tema/{id}", [SzavakController::class, "adottTemabanLevoSzavak"]);
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('fooldal');
 });
